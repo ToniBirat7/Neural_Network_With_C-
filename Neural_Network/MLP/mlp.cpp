@@ -19,7 +19,22 @@ Perceptron::Perceptron(size_t inputs, double bias)
 
   weights.resize(inputs + 1); // Resize the Vector for Weights + Bias
 
-  // Generate Random Numbers and Fill in the Vectors
+  // Generate Random Numbers and Fill in the Vectors. Pass the frand function to generate the number
 
-  generate(weights.begin(), weights.end(), )
+  generate(weights.begin(), weights.end(), frand);
+}
+
+// Run Function
+// Feeds an Input Vector X into the perceptron to return the activation function output.
+
+double Perceptron::run(std::vector<double> x)
+{
+
+  // Add the bias at the end
+  x.push_back(bias);
+
+  // Weighted Sum
+  double sum = inner_product(x.begin(), x.end(), weights.begin(), (double)0.0);
+
+  return sigmoid(sum);
 }
