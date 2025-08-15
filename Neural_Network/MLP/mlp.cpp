@@ -3,7 +3,6 @@
 using namespace std;
 
 // Random Number Generator Function
-
 double frand()
 {
   return (2.0 * (double)rand() / RAND_MAX) - 1.0;
