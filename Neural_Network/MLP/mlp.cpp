@@ -45,3 +45,10 @@ void Perceptron::set_weights(std::vector<double> w_init)
 {
   weights = w_init; // Copies the vector
 }
+
+// Evaluate the Sigmoid Function for the floating point of input
+
+double Perceptron::sigmoid(double x)
+{
+  return 1.0 / (1.0 + exp(-x));
+}
