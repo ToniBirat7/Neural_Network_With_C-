@@ -36,5 +36,12 @@ double Perceptron::run(std::vector<double> x)
   // Weighted Sum
   double sum = inner_product(x.begin(), x.end(), weights.begin(), (double)0.0);
 
-  return sigmoid(sum);
+  return sigmoid(sum); // Pass into the sigmoid function
+}
+
+// Set the weights. w_init is a vector with the Weights
+
+void Perceptron::set_weights(std::vector<double> w_init)
+{
+  weights = w_init; // Copies the vector
 }
