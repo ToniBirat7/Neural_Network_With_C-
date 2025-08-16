@@ -45,11 +45,13 @@ public:
   double bp(std::vector<double> x, std::vector<double> y);
 
   // Attributes
+
   std::vector<size_t> layers; // Unsigned Integers, Number of Neurons Per Layer, 0 for Input, 2 for Hidden, 1 for Output
-  
-  double bias;
-  double eta;
-  std::vector<std::vector<Perceptron>> network;
-  std::vector<std::vector<double>> values;
-  std::vector<std::vector<double>> d;
+
+  double bias; // Bias
+  double eta;  // Learning Rate
+
+  std::vector<std::vector<Perceptron>> network; // Neural Network
+  std::vector<std::vector<double>> values;      // Hodl the Output Valuse of the Network
+  std::vector<std::vector<double>> d;           // Error Terms for the Neurons
 };
