@@ -26,3 +26,30 @@ public:
   // Sigmoid Activation Function
   double sigmoid(double x);
 };
+
+class MultiLayerPerceptron
+{
+public:
+  // Constructor for initilizing layers
+  MultiLayerPerceptron(std::vector<size_t> layers, double bias = 1.0, double eta = 0.5);
+
+  // Set custom weights, w_init for weights of 3 perceptron
+  void set_weights(std::vector<std::vector<std::vector<double>>> w_init);
+
+  // Display the weights
+  void print_weights();
+
+  // Run the MLP
+  std::vector<double> run(std::vector<double> x);
+
+  double bp(std::vector<double> x, std::vector<double> y);
+
+  // Attributes
+  std::vector<size_t> layers; // Unsigned Integers, Number of Neurons Per Layer, 0 for Input, 2 for Hidden, 1 for Output
+  
+  double bias;
+  double eta;
+  std::vector<std::vector<Perceptron>> network;
+  std::vector<std::vector<double>> values;
+  std::vector<std::vector<double>> d;
+};
