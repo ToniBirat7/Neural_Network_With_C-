@@ -8,6 +8,10 @@ double frand()
   return (2.0 * (double)rand() / RAND_MAX) - 1.0;
 }
 
+/*
+Single Layer Perceptron Implementation
+*/
+
 // Return a new Perceptron Object with the Specified number of Inputs (+1 for the bias)
 
 Perceptron::Perceptron(size_t inputs, double bias)
@@ -50,4 +54,21 @@ void Perceptron::set_weights(std::vector<double> w_init)
 double Perceptron::sigmoid(double x)
 {
   return 1.0 / (1.0 + exp(-x));
+}
+
+/*
+Multi Layer Perceptron Implementation
+*/
+
+// Return a new Perceptron Object with the Specified number of Inputs (+1 for the bias)
+
+MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bias, double eta) : layers(layers), bias(bias), eta(eta)
+{
+  // Create Neurons Layer By Layer
+
+  for (size_t i = 0; i < layers.size(); i++)
+  {
+    // Add Vector of Values Filled with Zeros
+    values.push_back(vector<double>(layers[i], 0.0));
+  }
 }
