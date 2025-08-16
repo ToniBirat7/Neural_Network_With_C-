@@ -51,7 +51,20 @@ public:
   double bias; // Bias
   double eta;  // Learning Rate
 
-  std::vector<std::vector<Perceptron>> network; // Neural Network
-  std::vector<std::vector<double>> values;      // Hold the Output Values of the Network
-  std::vector<std::vector<double>> d;           // Error Terms for the Neurons
+  std::vector<std::vector<Perceptron>> network;
+  // 'network' (the outer vector object) is created on the stack.
+  // But the actual Perceptrons stored inside inner vectors
+  // will be allocated dynamically on the heap.
+
+  // becuase the outer vector is an Object created on the Stack without the New Keyword
+
+  std::vector<std::vector<double>> values; // Output values of each neuron in each layer
+  // Outer vector object is on stack; inner vectors manage heap-allocated arrays for neuron outputs
+
+  // becuase the outer vector is an Object created on the Stack without the New Keyword
+
+  std::vector<std::vector<double>> d; // Error terms (deltas) for each neuron
+  // Outer vector object is on stack; inner vectors manage heap-allocated arrays for errors
+
+  // becuase the outer vector is an Object created on the Stack without the New Keyword
 };

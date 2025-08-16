@@ -70,7 +70,7 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bi
     values.push_back(vector<double>(layers[i], 0.0)); // Output of Each Neuron Value set to Zero based on the number of Neurons in Each layer
 
     // Add Vector of Neurons
-    network.push_back(vector<Perceptron>()); // Perceptron Constructor, Empty for Now
+    network.push_back(vector<Perceptron>()); // Creates a temporary empty std::vector<Perceptron> object and pushes it into 'network'. Without '()', we would only refer to the type name, not an object, causing a compiler error.
 
     // Inner Loop
     // network[0] is the input layer, so it has no neurons
@@ -79,7 +79,9 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bi
       // Iterate on Each Neuron in the Layer
       for (size_t j = 0; j < layers[i]; j++)
       {
-        // For Every Neuron Create a Perceptron
+        // Add Perceptron in Every Layer, Starting with the Layer 1, cause 0 is Input Layer
+        // Each Perceptron Should Accept the Input as Number of Neurons in the Pervious Layer
+        network[i].push_back(Perceptron(layers[i - 1], bias));
       }
     }
   }
