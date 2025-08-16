@@ -29,7 +29,6 @@ Perceptron::Perceptron(size_t inputs, double bias)
 
 // Run Function
 // Feeds an Input Vector X into the perceptron to return the activation function output.
-
 double Perceptron::run(std::vector<double> x)
 {
 
@@ -43,7 +42,6 @@ double Perceptron::run(std::vector<double> x)
 }
 
 // Set the weights. w_init is a vector with the Weights
-
 void Perceptron::set_weights(std::vector<double> w_init)
 {
   weights = w_init; // Copies the vector
@@ -60,18 +58,29 @@ double Perceptron::sigmoid(double x)
 Multi Layer Perceptron Implementation
 */
 
-// Return a new Perceptron Object with the Specified number of Inputs (+1 for the bias)
+// Return a new MLP Object with the Specified number layers, bias and Learning Rate
 
 MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bias, double eta) : layers(layers), bias(bias), eta(eta)
 {
   // Create Neurons Layer By Layer
-
+  // Outer Loop
   for (size_t i = 0; i < layers.size(); i++)
   {
     // Add Vector of Values Filled with Zeros
     values.push_back(vector<double>(layers[i], 0.0)); // Output of Each Neuron Value set to Zero based on the number of Neurons in Each layer
 
     // Add Vector of Neurons
-    network.push_back(vector<Perceptron>());
+    network.push_back(vector<Perceptron>()); // Perceptron Constructor, Empty for Now
+
+    // Inner Loop
+    // network[0] is the input layer, so it has no neurons
+    if (i > 0)
+    {
+      // Iterate on Each Neuron in the Layer
+      for (size_t j = 0; j < layers[i]; j++)
+      {
+        // For Every Neuron Create a Perceptron
+      }
+    }
   }
 }

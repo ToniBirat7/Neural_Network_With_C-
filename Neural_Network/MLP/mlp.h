@@ -52,6 +52,6 @@ public:
   double eta;  // Learning Rate
 
   std::vector<std::vector<Perceptron>> network; // Neural Network
-  std::vector<std::vector<double>> values;      // Hodl the Output Valuse of the Network
+  std::vector<std::vector<double>> values;      // Hold the Output Values of the Network
   std::vector<std::vector<double>> d;           // Error Terms for the Neurons
 };
