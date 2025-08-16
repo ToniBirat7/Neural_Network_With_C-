@@ -21,7 +21,7 @@ int main()
 
   orGate.set_weights({15, 15, -10}); // +1 Bias
 
-  cout << "Gate: AND" << endl;
+  cout << "Gate: OR" << endl;
   cout << "0 AND 0 = " << orGate.run({0, 0}) << endl;
   cout << "0 AND 1 = " << orGate.run({0, 1}) << endl;
   cout << "1 AND 0 = " << orGate.run({1, 0}) << endl;
