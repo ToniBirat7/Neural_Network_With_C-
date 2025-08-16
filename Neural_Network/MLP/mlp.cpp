@@ -69,6 +69,9 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bi
   for (size_t i = 0; i < layers.size(); i++)
   {
     // Add Vector of Values Filled with Zeros
-    values.push_back(vector<double>(layers[i], 0.0));
+    values.push_back(vector<double>(layers[i], 0.0)); // Output of Each Neuron Value set to Zero based on the number of Neurons in Each layer
+
+    // Add Vector of Neurons
+    network.push_back(vector<Perceptron>());
   }
 }
