@@ -92,13 +92,27 @@ void MultiLayerPerceptron::set_weights(vector<vector<vector<double>>> w_init)
 {
   // Write all the weights into the neural network
   // w_init is a vector of vectors of vectors of doubles
+  for (size_t i = 0; i < w_init.size(); i++)
+  {
+    for (size_t j = 0; j < w_init[i].size(); j++)
+    {
+      network[i + 1][j].set_weights(w_init[i][j]);
+    }
+  }
+
+  // Example of w_init
+  vector<vector<vector<double>>> w = {
+      {{0, 0}, {0, 0}},
+      {{0, 0}}};
 }
 
 // Run the Network
-vector<double> MultiLayerPerceptron::run(vector<double> x)
+vector<double>
+MultiLayerPerceptron::run(vector<double> x)
 {
   // Run an Input Forward Through the Neural Network
   // x is a vector with the input values
+  return values.back(); // Return the output of the last layer
 }
 
 // Print the Weights
