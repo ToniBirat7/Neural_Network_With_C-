@@ -86,3 +86,9 @@ MultiLayerPerceptron::MultiLayerPerceptron(std::vector<size_t> layers, double bi
     }
   }
 }
+
+void MultiLayerPerceptron::set_weights(vector<vector<vector<double>>> w_init)
+{
+  // Write all the weights into the neural network
+  // 
+}
