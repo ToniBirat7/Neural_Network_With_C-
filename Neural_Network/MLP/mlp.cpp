@@ -97,6 +97,8 @@ void MultiLayerPerceptron::set_weights(vector<vector<vector<double>>> w_init)
 // Run the Network
 vector<double> MultiLayerPerceptron::run(vector<double> x)
 {
+  // Run an Input Forward Through the Neural Network
+  // x is a vector with the input values
 }
 
 // Print the Weights
