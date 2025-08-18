@@ -107,11 +107,20 @@ void MultiLayerPerceptron::set_weights(vector<vector<vector<double>>> w_init)
 }
 
 // Run the Network
-vector<double>
-MultiLayerPerceptron::run(vector<double> x)
+vector<double> MultiLayerPerceptron::run(vector<double> x)
 {
   // Run an Input Forward Through the Neural Network
   // x is a vector with the input values
+
+  // Set the values for the first layer to the given value x, before it was initialized with {0,0}
+  values[0] = x;
+
+  for (size_t i = 1; i < network.size(); i++)
+  {
+    for(size_t j = 0; j < layers[i]; j++) {
+      val
+    }
+  }
   return values.back(); // Return the output of the last layer
 }
 
