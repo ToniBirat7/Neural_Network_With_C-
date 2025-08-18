@@ -117,8 +117,9 @@ vector<double> MultiLayerPerceptron::run(vector<double> x)
 
   for (size_t i = 1; i < network.size(); i++)
   {
-    for(size_t j = 0; j < layers[i]; j++) {
-      val
+    for (size_t j = 0; j < layers[i]; j++)
+    {
+      values[i][j] = network[i][j].run(values[i - 1]);
     }
   }
   return values.back(); // Return the output of the last layer
