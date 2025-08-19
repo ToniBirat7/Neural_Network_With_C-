@@ -46,7 +46,7 @@ int main()
 
   // Run the Network
   cout << "XOR: " << endl;
-  cout << "0 0 = " << mlp.run({0, 0})[0] << endl; // For 0 0 Input, Output should be  0
+  cout << "0 0 = " << mlp.run({0, 0})[0] << endl; // For 0 0 Input, Output should be  0.00669585
   cout << "0 0 = " << mlp.run({0, 1})[0] << endl; // For 0 1 Input, Output should be  1
   cout << "0 0 = " << mlp.run({1, 0})[0] << endl; // For 1 0 Input, Output should be  1
   cout << "0 0 = " << mlp.run({1, 1})[0] << endl; // For 1 1 Input, Output should be  0
