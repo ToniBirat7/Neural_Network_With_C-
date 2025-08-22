@@ -125,6 +125,22 @@ vector<double> MultiLayerPerceptron::run(vector<double> x)
   return values.back(); // Return the output of the last layer
 }
 
+// Run a single (x,y) pair with the Backpropagation algorithm
+
+double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
+{
+  // Step 1: Feed a sample to the Network
+
+  // Step 2: Calculate MSE
+  double MSE = 0.0;
+
+  // Step 3: Calculate the Output Error Terms
+
+  // Step 4: Calculate the error term of each unit on each layer
+
+  // Step 5 and 6: Calculate the deltas and update the weights
+}
+
 // Print the Weights
 void MultiLayerPerceptron::print_weights()
 {
