@@ -179,7 +179,6 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
   }
 
   // Reutrn MSE
-
   return MSE;
 }
 
