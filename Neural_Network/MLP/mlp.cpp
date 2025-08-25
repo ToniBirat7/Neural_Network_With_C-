@@ -129,7 +129,6 @@ vector<double> MultiLayerPerceptron::run(vector<double> x)
 }
 
 // Run a single (x,y) pair with the Backpropagation algorithm
-
 double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
 {
   // Step 1: Feed a sample to the Network
@@ -145,6 +144,7 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
     error.push_back(y[i] - outputs[i]); // ŷ - y
     MSE += error[i] * error[i];         // (ŷ - y)^2 i.e. MSE for Each Sample
   }
+
   MSE /= layers.back(); // Average of MSE or Loss Function i.e. ((ŷ - y)^2) / N, here N is the number of Perceptron in the output layer
 
   // Step 3: Calculate the Error for the Neurons in the Last Layer
@@ -153,7 +153,7 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
     d.back()[i] = outputs[i] * (1 - outputs[i]) * (error[i]); // Delta for the Output Layer
   }
 
-  // Step 4: Calculate the error term of each unit on each layer
+  // Step 4: Calculate the error term of each unit on each layer from the forward layer
   for (size_t i = network.size() - 2; i > 0; i--)
   {
     for (size_t h = 0; h < network[i].size(); h++)
@@ -161,8 +161,9 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
       double fwd_error = 0.0;
       for (size_t k = 0; k < layers[i + 1]; k++)
       {
-        ; // Fill in the blank
-      }; // Fill in the blank
+        fwd_error += network[i + 1][k].weights[h] * d[i + 1][k];
+      }
+      d[i][h] = values[i][h] * (1 - values[i][h]) * fwd_error;
     }
   }
 
