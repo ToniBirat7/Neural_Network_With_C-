@@ -154,7 +154,7 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
   }
 
   // Step 4: Calculate the error term of each unit on each layer from the forward layer
-  for (size_t i = network.size() - 2; i > 0; i--)
+  for (size_t i = network.size() - 2; i > 0; i--) // Error of each Perceptron only of the Hidden Layer, so substract 2 from the total size of network
   {
     for (size_t h = 0; h < network[i].size(); h++)
     {
