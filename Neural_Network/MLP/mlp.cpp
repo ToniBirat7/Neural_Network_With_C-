@@ -168,13 +168,22 @@ double MultiLayerPerceptron::bp(vector<double> x, vector<double> y)
   }
 
   // Step 5 and 6: Calculate the deltas and update the weights
-  for (size_t i = 1; i < network.size(); i++)
+  for (size_t i = 1; i < network.size(); i++) // Goes through the layers
   {
-    for (size_t j = 0; j < layers[i]; j++)
+    for (size_t j = 0; j < layers[i]; j++) // Goes through the neurons
     {
-      for (size_t k = 0; k < layers[i - 1] + 1; k++)
+      for (size_t k = 0; k < layers[i - 1] + 1; k++) // Goes through the inputs
       {
-        // Fill in the blank
+        double delta;
+        if (k == layers[i - 1])
+        {
+          delta = eta * d[i][j] * bias;
+        }
+        else
+        {
+          delta = eta * d[i][j] * values[i - 1][k];
+        }
+        network[i][j].weights[k] += delta;
       }
     }
   }
